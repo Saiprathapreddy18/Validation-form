@@ -6,17 +6,22 @@
 }
 
 :root{
-    --bg-1: #eef2ff;
-    --bg-2: #fdf2f8;
-    --bg-3: #ecfeff;
-    --ink: #0f172a;
-    --muted: #64748b;
-    --line: #e2e8f0;
-    --line-strong: #cbd5e1;
-    --accent: #4f46e5;
-    --accent-soft: rgba(79,70,229,0.12);
-    --danger: #dc2626;
-    --success: #16a34a;
+    --bg-1: #dbeafe;
+    --bg-2: #fce7f3;
+    --bg-3: #cffafe;
+    --ink: #0b1220;
+    --ink-soft: #1e293b;
+    --label: #334155;
+    --muted: #475569;
+    --placeholder: #64748b;
+    --line: #cbd5e1;
+    --line-strong: #94a3b8;
+    --accent: #4338ca;
+    --accent-soft: rgba(67,56,202,0.18);
+    --danger: #b91c1c;
+    --danger-bg: #fef2f2;
+    --success: #15803d;
+    --success-bg: #f0fdf4;
 }
 
 body{
@@ -26,7 +31,7 @@ body{
         radial-gradient(1200px 800px at 10% 10%, var(--bg-1), transparent 60%),
         radial-gradient(1000px 700px at 90% 20%, var(--bg-2), transparent 60%),
         radial-gradient(900px 700px at 50% 100%, var(--bg-3), transparent 60%),
-        #f8fafc;
+        #f1f5f9;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,58 +47,59 @@ body{
 
 .container form{
     width: 100%;
-    max-width: 440px;
-    padding: 40px 36px 32px;
+    max-width: 480px;
+    padding: 44px 40px 36px;
     background: #ffffff;
     border: 1px solid var(--line);
     border-radius: 16px;
     box-shadow:
-        0 1px 2px rgba(15,23,42,0.04),
-        0 12px 32px rgba(15,23,42,0.08);
+        0 1px 2px rgba(15,23,42,0.06),
+        0 16px 40px rgba(15,23,42,0.12);
 }
 
 .container form::before{
     content: 'Contact';
     display: block;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin-bottom: 4px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 6px;
 }
 
 .container form::after{
     content: 'We\'ll get back to you shortly.';
     display: block;
-    font-size: 14px;
+    font-size: 15px;
     color: var(--muted);
-    margin-bottom: 28px;
+    margin-bottom: 30px;
 }
 
 .input-group{
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-bottom: 18px;
+    gap: 8px;
+    margin-bottom: 20px;
     position: relative;
 }
 
 .input-group label{
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--label);
     letter-spacing: 0.02em;
-    text-transform: uppercase;
 }
 
 .input-group input,
 .input-group textarea{
     width: 100%;
     background: #ffffff;
-    border: 1px solid var(--line);
+    border: 1.5px solid var(--line);
     border-radius: 10px;
-    padding: 12px 14px;
+    padding: 13px 15px;
     color: var(--ink);
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 500;
     font-family: inherit;
     outline: 0;
     transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
@@ -101,7 +107,8 @@ body{
 
 .input-group textarea{
     resize: vertical;
-    min-height: 110px;
+    min-height: 120px;
+    line-height: 1.5;
 }
 
 .input-group input:hover,
@@ -116,20 +123,34 @@ body{
 }
 
 ::placeholder{
-    color: #94a3b8;
-    font-size: 14px;
+    color: var(--placeholder);
+    font-size: 15px;
+    font-weight: 400;
 }
 
 .input-group span{
-    min-height: 16px;
-    font-size: 12px;
+    min-height: 18px;
+    font-size: 13px;
+    font-weight: 500;
     color: var(--danger);
-    line-height: 1.2;
+    line-height: 1.3;
+}
+
+.input-group span:not(:empty){
+    padding: 4px 8px;
+    background: var(--danger-bg);
+    border-radius: 6px;
+    width: fit-content;
 }
 
 .input-group span i{
     color: var(--success);
     font-style: normal;
+    font-weight: 600;
+}
+
+.input-group span:has(i){
+    background: var(--success-bg);
 }
 
 form button{
@@ -138,18 +159,23 @@ form button{
     color: #fff;
     border-radius: 10px;
     border: 0;
-    padding: 12px 20px;
-    font-size: 15px;
-    font-weight: 500;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 600;
     font-family: inherit;
+    letter-spacing: 0.01em;
     cursor: pointer;
-    margin-top: 8px;
+    margin-top: 10px;
     transition: transform 0.05s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
 
 form button:hover{
-    background: #1e293b;
-    box-shadow: 0 6px 16px rgba(15,23,42,0.18);
+    background: var(--ink-soft);
+    box-shadow: 0 8px 20px rgba(15,23,42,0.22);
+}
+
+form button:focus-visible{
+    box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
 form button:active{
@@ -159,14 +185,18 @@ form button:active{
 #submit-error{
     display: block;
     text-align: center;
-    margin-top: 12px;
+    margin-top: 14px;
     color: var(--danger);
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 @media (max-width: 480px){
     .container form{
-        padding: 28px 22px 24px;
+        padding: 32px 24px 26px;
         border-radius: 14px;
+    }
+    .container form::before{
+        font-size: 24px;
     }
 }
